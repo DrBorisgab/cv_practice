@@ -19,7 +19,7 @@ int main( int argc, char *argv[] ) {
     std::cout<<"Enter the number of figures:"<<std::endl;
     std::cin>>num;
     
-    std::string head ("<html>\n<svg wight=\"500\" height=\"500\">");
+    std::string head ("<html>\n<svg wight=\"2000\" height=\"2000\">");
     std::fstream fs;
     fs.open("figure.html",std::fstream::out);
     fs << head << std::endl;
@@ -37,7 +37,7 @@ int main( int argc, char *argv[] ) {
             str += " ";
             str += to_string(200);
             str += ",";
-            str += to_string(140*i);
+            str += to_string(200*i-60);
             str += " ";
             str += to_string(300);
             str += ",";
@@ -45,7 +45,7 @@ int main( int argc, char *argv[] ) {
             str += " ";
             str += to_string(200);
             str += ",";
-            str += to_string(260*i);
+            str += to_string(200*i+60);
             str += "\"\n fill=\"none\"\n stroke=\"black\"/>";
             
             fs << str << std::endl;
@@ -60,21 +60,21 @@ int main( int argc, char *argv[] ) {
         for (int i=1;i<=num;i++) {
             
         std::string str = " <polygon points=\" ";
-            str += to_string(100);
+        str += to_string(100);
         str += ",";
-        str += to_string(100*i);
-        str += " ";
-        str += to_string(300);
-        str += ",";
-        str += to_string(100*i);
+        str += to_string(200*i);
         str += " ";
         str += to_string(300);
         str += ",";
         str += to_string(200*i);
         str += " ";
+        str += to_string(300);
+        str += ",";
+        str += to_string(200*i+100);
+        str += " ";
         str += to_string(100);
         str += ",";
-        str += to_string(200);
+        str += to_string(200*i+100);
         str += "\"\n fill=\"none\"\nstroke=\"black\"/>";
         
         
@@ -101,11 +101,11 @@ int main( int argc, char *argv[] ) {
             str += " ";
             str += to_string(240);
             str += ",";
-            str += to_string(180*i);
+            str += to_string(100*i+80);
             str += " ";
             str += to_string(100);
             str += ",";
-            str += to_string(180);
+            str += to_string(100*i+80);
             str += "\"\n fill=\"none\"\n stroke=\"black\"/>";
             
             fs << str << std::endl;
@@ -128,19 +128,19 @@ int main( int argc, char *argv[] ) {
             str += " ";
             str += to_string(100);
             str += ",";
-            str += to_string(140*i);
+            str += to_string(180*i-40);
             str += " ";
             str += to_string(140);
             str += ",";
-            str += to_string(100*i);
+            str += to_string(180*i-80);
             str += " ";
             str += to_string(260);
             str += ",";
-            str += to_string(100);
+            str += to_string(180*i-80);
             str += " ";
             str += to_string(300);
             str += ",";
-            str += to_string(140*i);
+            str += to_string(180*i-40);
             str += " ";
             str += to_string(300);
             str += ",";
@@ -155,23 +155,23 @@ int main( int argc, char *argv[] ) {
             strc += " ";
             strc += to_string(100);
             strc += ",";
-            strc += to_string(240*i);
+            strc += to_string(280*i-40);
             strc += " ";
             strc += to_string(300);
             strc += ",";
-            strc += to_string(240*i);
+            strc += to_string(280*i-40);
             strc += " ";
             strc += to_string(300);
             strc += ",";
-            strc += to_string(280);
+            strc += to_string(280*i);
             strc += " ";
             strc += to_string(260);
             strc += ",";
-            strc += to_string(320*i);
+            strc += to_string(280*i+40);
             strc += " ";
             strc += to_string(140);
             strc += ",";
-            strc += to_string(320*i);
+            strc += to_string(280*i+40);
             strc += "\"\n fill=\"none\"\n stroke=\"black\"/>";
             
             
