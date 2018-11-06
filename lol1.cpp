@@ -124,54 +124,54 @@ int main( int argc, char *argv[] ) {
             
             str += to_string(100);
             str += ",";
-            str += to_string(180*i);
+            str += to_string(400*i);
             str += " ";
             str += to_string(100);
             str += ",";
-            str += to_string(180*i-40);
+            str += to_string(400*i-40);
             str += " ";
             str += to_string(140);
             str += ",";
-            str += to_string(180*i-80);
+            str += to_string(400*i-80);
             str += " ";
             str += to_string(260);
             str += ",";
-            str += to_string(180*i-80);
+            str += to_string(400*i-80);
             str += " ";
             str += to_string(300);
             str += ",";
-            str += to_string(180*i-40);
+            str += to_string(400*i-40);
             str += " ";
             str += to_string(300);
             str += ",";
-            str += to_string(180*i);
+            str += to_string(400*i);
             str += "\"\n fill=\"none\"\n stroke=\"black\"/>";
             
             std::string strc = " <polygon points=\" ";
             
             strc += to_string(100);
             strc += ",";
-            strc += to_string(280*i);
+            strc += to_string(380*i+100);
             strc += " ";
             strc += to_string(100);
             strc += ",";
-            strc += to_string(280*i-40);
+            strc += to_string(380*i+60);
             strc += " ";
             strc += to_string(300);
             strc += ",";
-            strc += to_string(280*i-40);
+            strc += to_string(380*i+60);
             strc += " ";
             strc += to_string(300);
             strc += ",";
-            strc += to_string(280*i);
+            strc += to_string(380*i+100);
             strc += " ";
             strc += to_string(260);
             strc += ",";
-            strc += to_string(280*i+40);
+            strc += to_string(380*i+140);
             strc += " ";
             strc += to_string(140);
             strc += ",";
-            strc += to_string(280*i+40);
+            strc += to_string(380*i+140);
             strc += "\"\n fill=\"none\"\n stroke=\"black\"/>";
             
             
