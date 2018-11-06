@@ -155,7 +155,7 @@ int main( int argc, char *argv[] ) {
             strc += " ";
             strc += to_string(100);
             strc += ",";
-            strc += to_string(380*i+100);
+            strc += to_string(300*i+100);
             strc += " ";
             strc += to_string(150);
             strc += ",";
@@ -171,7 +171,7 @@ int main( int argc, char *argv[] ) {
             strc += " ";
             strc += to_string(300);
             strc += ",";
-            strc += to_string(380*i+50);
+            strc += to_string(300*i+50);
             strc += "\"\n fill=\"none\"\n stroke=\"black\"/>";
             
             
