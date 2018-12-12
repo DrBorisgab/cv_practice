@@ -3,6 +3,48 @@
 #include <fstream>
 #include <string>
 #include <algorithm>
+#include <vector>
+
+
+class enum NodeTypes {
+    beginend,
+    cond,
+    loop,
+    act,
+    inputout;
+};
+
+struct Node {
+    NodeType type;
+    std::vector <Node*> succs = { };
+    Node ** succs;
+    int succs;
+};
+
+struct Graph {
+    std::string s;
+    Node * starNode;
+};
+
+void drawNode(const Node * n) {
+    std string s = "<figure>";
+    for (int i = 0; i < n->succNum; i++) {
+        drawNode(n->succs[i]);
+    }
+}
+
+void drawGraph(const Graph & g) {
+    drawNode(g->starNode);
+}
+
+
+std::string drawNode(Node * n, int x, int y) {
+    if (n->type == inputOut){
+        return inOut(x, y);
+    }
+}
+
+
 
 std::string to_string(int k) {
     std::string str = "";
@@ -13,8 +55,7 @@ std::string to_string(int k) {
     return str;
 }
 
-
-std::string beginend_ (int x, int y) {
+std::string beginEnd (int x, int y) {
     
     std::string beginend = " <ellipse rx=\" ";
     beginend += to_string(100);
@@ -30,7 +71,7 @@ std::string beginend_ (int x, int y) {
 }
 
 
-std::string line_ (int x, int y) {
+std::string mainLine (int x, int y) {
     
     std::string line = " <line x1 = \"";
     line += to_string(x);
@@ -49,7 +90,7 @@ std::string line_ (int x, int y) {
     
 }
 
-std::string line_gor (int x, int y) {
+std::string horLine (int x, int y) {
     
     std::string line = " <line x1 = \"";
     line += to_string(x);
@@ -68,7 +109,7 @@ std::string line_gor (int x, int y) {
     
 }
 
-std::string line_gorlong (int x, int y) {
+std::string horLongLine (int x, int y) {
     
     std::string line = " <line x1 = \"";
     line += to_string(x);
@@ -87,7 +128,7 @@ std::string line_gorlong (int x, int y) {
     
 }
 
-std::string line_long (int x, int y) {
+std::string longLine (int x, int y) {
     
     std::string line = " <line x1 = \"";
     line += to_string(x);
@@ -107,7 +148,7 @@ std::string line_long (int x, int y) {
 }
 
 
-std::string inputout_ (int x, int y) {
+std::string inOut (int x, int y) {
     
     std::string inputout = " <polygon points=\" ";
     inputout += to_string(x);
@@ -131,7 +172,7 @@ std::string inputout_ (int x, int y) {
 }
 
 
-std::string action_ (int x, int y) {
+std::string Action (int x, int y) {
     
     std::string action = " <polygon points=\" ";
     action += to_string(x);
@@ -155,7 +196,7 @@ std::string action_ (int x, int y) {
 }
 
     
-std::string condition_ (int x, int y) {
+std::string Condition (int x, int y) {
     
     std::string condition = " <polygon points = \" ";
     condition += to_string(x);
@@ -187,28 +228,26 @@ int main() {
     std::fstream fs;
     fs.open("figure.html",std::fstream::out);
     fs << head << std::endl;
-    fs << beginend_(360, 100) << std::endl;
-    fs << line_(360, 140) << std::endl;
-    fs << inputout_(320, 200) << std::endl;
-    fs << line_(360, 280) << std::endl;
-    fs << action_(260, 340) << std::endl;
-    fs << line_(360, 440) << std::endl;
-    fs << condition_(360, 500) << std::endl;
-    fs << line_(360, 620) << std::endl;
-    fs << action_(260, 680) << std::endl;
-    fs << line_(360, 780) << std::endl;
-    
-    fs << line_gor(220, 840) << std::endl;
-    fs << line_long(220, 500) << std::endl;
-    fs << line_gor(220, 500) << std::endl;
-    fs << line_gor(460, 560) << std::endl;
-    fs << line_long(600, 560) << std::endl;
-    fs << line_gorlong(360, 900) << std::endl;
-    
-    fs << line_(360, 900) << std::endl;
-    fs << inputout_(320, 960) << std::endl;
-    fs << line_(360, 1040) << std::endl;
-    fs << beginend_(360,1140) << std::endl;
+    fs << beginEnd(360, 100) << std::endl;
+    fs << mainLine(360, 140) << std::endl;
+    fs << inOut(320, 200) << std::endl;
+    fs << mainLine(360, 280) << std::endl;
+    fs << Action(260, 340) << std::endl;
+    fs << mainLine(360, 440) << std::endl;
+    fs << Condition(360, 500) << std::endl;
+    fs << mainLine(360, 620) << std::endl;
+    fs << Action(260, 680) << std::endl;
+    fs << mainLine(360, 780) << std::endl;
+    fs << horLine(220, 840) << std::endl;
+    fs << longLine(220, 500) << std::endl;
+    fs << horLine(220, 500) << std::endl;
+    fs << horLine(460, 560) << std::endl;
+    fs << longLine(600, 560) << std::endl;
+    fs << horLongLine(360, 900) << std::endl;
+    fs << mainLine(360, 900) << std::endl;
+    fs << inOut(320, 960) << std::endl;
+    fs << mainLine(360, 1040) << std::endl;
+    fs << beginEnd(360,1140) << std::endl;
     fs << tail << std::endl;
     fs.close();
     system("firefox figure.html");
@@ -216,3 +255,4 @@ int main() {
     return 0;
     
 }
+
